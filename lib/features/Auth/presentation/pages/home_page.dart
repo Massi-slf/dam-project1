@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/constants.dart';
-import 'package:new_app/features/Auth/presentation/pages/widgets/detail_pages.dart';
+import 'package:new_app/features/Auth/presentation/pages_details/alger_detail.dart';
+import 'package:new_app/features/Auth/presentation/pages_details/contantin_detail.dart';
+import 'package:new_app/features/Auth/presentation/pages_details/oran_detail.dart';
+import 'package:new_app/features/Auth/presentation/pages_details/setif_detail.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -97,21 +100,36 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
                           makeItem(
                             image: 'assets/photos_wilaya/alger.jpg',
-                            title: 'Alger',
-                            onTap: () {
+                            title: 'Alger',onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => DetailPages()));
+                                      builder: (context) => AlgerDetail()));
                             },
+                            
                           ),
-                          makeItem(
+                          makeItem(onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OranDetail()));
+                            },
                               image: 'assets/photos_wilaya/oran.jpg',
                               title: 'Oran'),
-                          makeItem(
+                          makeItem(onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SetifDetail()));
+                            },
                               image: 'assets/photos_wilaya/setif.jpg',
                               title: 'Setif'),
-                          makeItem(
+                          makeItem(onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ConstantinDetail()));
+                            },
                               image: 'assets/photos_wilaya/constantine.jpg',
                               title: 'Constantine')
                         ],
