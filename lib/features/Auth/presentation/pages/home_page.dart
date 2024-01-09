@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:new_app/core/utils/constants.dart';
 import 'package:new_app/features/Auth/presentation/pages/widgets/detail_pages.dart';
 
@@ -97,15 +96,21 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
                           makeItem(
-                              image: 'assets/photos_wilaya/alger.jpg', title: 'Alger',onTap: () {
-                                Navigator.push(
-                                   context,
-                                  MaterialPageRoute(builder: (context) => DetailPages(),));
-                              },),
+                            image: 'assets/photos_wilaya/alger.jpg',
+                            title: 'Alger',
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailPages()));
+                            },
+                          ),
                           makeItem(
-                              image: 'assets/photos_wilaya/oran.jpg', title: 'Oran'),
+                              image: 'assets/photos_wilaya/oran.jpg',
+                              title: 'Oran'),
                           makeItem(
-                              image: 'assets/photos_wilaya/setif.jpg', title: 'Setif'),
+                              image: 'assets/photos_wilaya/setif.jpg',
+                              title: 'Setif'),
                           makeItem(
                               image: 'assets/photos_wilaya/constantine.jpg',
                               title: 'Constantine')
@@ -133,11 +138,12 @@ class _HomePageState extends State<HomePage> {
                           makeItem(
                               image: 'assets/photos_wilaya/ha.jpg',
                               title: 'Alger'),
-
                           makeItem(
-                              image: 'assets/photos_wilaya/ho.jpg', title: 'Oran'),
+                              image: 'assets/photos_wilaya/ho.jpg',
+                              title: 'Oran'),
                           makeItem(
-                              image: 'assets/photos_wilaya/hs.jpg', title: 'Setif'),
+                              image: 'assets/photos_wilaya/hs.jpg',
+                              title: 'Setif'),
                           makeItem(
                               image: 'assets/photos_wilaya/hc.jpg',
                               title: 'Constantine')
@@ -190,11 +196,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget makeItem({image, title,VoidCallback? onTap}) {
+  Widget makeItem({image, title, VoidCallback? onTap}) {
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: GestureDetector(
-       onTap: onTap,
+        onTap: onTap,
         child: Container(
           margin: EdgeInsets.only(right: 15),
           decoration: BoxDecoration(
@@ -213,7 +219,10 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.bottomLeft,
               child: Text(
                 title,
-                style: TextStyle(color: Color.fromARGB(255, 40, 40, 40), fontSize: 20,fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    color: Color.fromARGB(255, 40, 40, 40),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
           ),
