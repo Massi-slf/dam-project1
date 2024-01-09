@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:new_app/core/utils/constants.dart';
-import 'package:new_app/features/Auth/presentation/pages_details/alger_detail.dart';
-import 'package:new_app/features/Auth/presentation/pages_details/contantin_detail.dart';
-import 'package:new_app/features/Auth/presentation/pages_details/oran_detail.dart';
-import 'package:new_app/features/Auth/presentation/pages_details/setif_detail.dart';
+import 'package:new_app/features/Auth/presentation/pages/widgets/detail_pages.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -99,37 +97,12 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
                           makeItem(
-                            image: 'assets/photos_wilaya/alger.jpg',
-                            title: 'Alger',onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => AlgerDetail()));
-                            },
-                            
-                          ),
-                          makeItem(onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => OranDetail()));
-                            },
-                              image: 'assets/photos_wilaya/oran.jpg',
-                              title: 'Oran'),
-                          makeItem(onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SetifDetail()));
-                            },
-                              image: 'assets/photos_wilaya/setif.jpg',
-                              title: 'Setif'),
-                          makeItem(onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ConstantinDetail()));
-                            },
+                              image: 'assets/photos_wilaya/alger.jpg', title: 'Alger',),
+                          makeItem(
+                              image: 'assets/photos_wilaya/oran.jpg', title: 'Oran'),
+                          makeItem(
+                              image: 'assets/photos_wilaya/setif.jpg', title: 'Setif'),
+                          makeItem(
                               image: 'assets/photos_wilaya/constantine.jpg',
                               title: 'Constantine')
                         ],
@@ -214,11 +187,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget makeItem({image, title, VoidCallback? onTap}) {
+  Widget makeItem({image, title,OnTap}) {
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: GestureDetector(
-        onTap: onTap,
+       
         child: Container(
           margin: EdgeInsets.only(right: 15),
           decoration: BoxDecoration(
