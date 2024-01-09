@@ -5,6 +5,7 @@ import 'package:new_app/core/utils/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:new_app/features/Auth/presentation/home_page_view.dart';
 import 'package:new_app/features/on%20Boarding/presentation/widgets/custom_page_view.dart';
+import 'package:new_app/login/login.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboadringViewBody extends StatefulWidget {
@@ -75,7 +76,7 @@ class _OnboadringViewBodyState extends State<OnboadringViewBody> {
                   pageController?.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeInSine);
                   
                 }else {
-                  Get.to(()=> HomePageView(),transition:Transition.fade, duration :Duration(milliseconds: 500 ));
+                  Get.to(()=> LoginPage(),transition:Transition.fade, duration :Duration(milliseconds: 500 ));
                 }
               },
               textButton: pageController!.hasClients

@@ -11,8 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<bool> liked = List.filled(8, false); // List to track liked state
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,8 +41,8 @@ class _HomePageState extends State<HomePage> {
                         "Discover",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Color.fromARGB(200, 4, 62, 94),
-                            fontSize: 60,
+                            color: Color.fromARGB(255, 46, 46, 46),
+                            fontSize: 40,
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
@@ -102,66 +100,38 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
                           makeItem(
                             image: 'assets/photos_wilaya/alger.jpg',
-                            title: 'Alger',
-                            onTap: () {
+                            title: 'Alger',onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => AlgerDetail()));
                             },
-                            onLike: () {
-                              setState(() {
-                                liked[0] = !liked[0];
-                              });
-                            },
-                            isLiked: liked[0],
+                            
                           ),
-                          makeItem(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => OranDetail()));
-                              },
+                          makeItem(onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OranDetail()));
+                            },
                               image: 'assets/photos_wilaya/oran.jpg',
-                              title: 'Oran',
-                              onLike: () {
-                                setState(() {
-                                  liked[1] = !liked[1];
-                                });
-                              },
-                              isLiked: liked[1]),
-                          makeItem(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SetifDetail()));
-                              },
+                              title: 'Oran'),
+                          makeItem(onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SetifDetail()));
+                            },
                               image: 'assets/photos_wilaya/setif.jpg',
-                              title: 'Setif',
-                              onLike: () {
-                                setState(() {
-                                  liked[2] = !liked[2];
-                                });
-                              },
-                              isLiked: liked[2]),
-                          makeItem(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ConstantinDetail()));
-                              },
+                              title: 'Setif'),
+                          makeItem(onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ConstantinDetail()));
+                            },
                               image: 'assets/photos_wilaya/constantine.jpg',
-                              title: 'Constantine',
-                              onLike: () {
-                                setState(() {
-                                  liked[3] = !liked[3];
-                                });
-                              },
-                              isLiked: liked[3]),
+                              title: 'Constantine')
                         ],
                       ),
                     ),
@@ -185,47 +155,55 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
                           makeItem(
                               image: 'assets/photos_wilaya/ha.jpg',
-                              title: 'Hotel A',
-                              onLike: () {
-                                setState(() {
-                                  liked[4] = !liked[4];
-                                });
-                              },
-                              isLiked: liked[4]),
+                              title: 'Alger'),
                           makeItem(
                               image: 'assets/photos_wilaya/ho.jpg',
-                              title: 'Hotel B',
-                              onLike: () {
-                                setState(() {
-                                  liked[5] = !liked[5];
-                                });
-                              },
-                              isLiked: liked[5]),
+                              title: 'Oran'),
                           makeItem(
                               image: 'assets/photos_wilaya/hs.jpg',
-                              title: 'Hotel C',
-                              onLike: () {
-                                setState(() {
-                                  liked[6] = !liked[6];
-                                });
-                              },
-                              isLiked: liked[6]),
+                              title: 'Setif'),
                           makeItem(
                               image: 'assets/photos_wilaya/hc.jpg',
-                              title: 'Hotel D',
-                              onLike: () {
-                                setState(() {
-                                  liked[7] = !liked[7];
-                                });
-                              },
-                              isLiked: liked[7]),
+                              title: 'Constantine')
                         ],
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    // Add more sections as needed
+                    // Text(
+                    //   "Popular",
+                    //   style: TextStyle(
+                    //       fontWeight: FontWeight.bold,
+                    //       color: Colors.grey[800],
+                    //       fontSize: 20),
+                    // ),
+                    // SizedBox(
+                    //   height: 20,
+                    // ),
+                    // Container(
+                    //   height: 200,
+                    //   child: ListView(
+                    //     scrollDirection: Axis.horizontal,
+                    //     children: <Widget>[
+                    //       makeItem(
+                    //           image: 'assets/images/greece.jpg', title: 'Greece'),
+                    //       makeItem(
+                    //           image: 'assets/images/united-states.jpg',
+                    //           title: 'United States'),
+                    //       makeItem(
+                    //           image: 'assets/images/Italy.jpg', title: 'Italy'),
+                    //       makeItem(
+                    //           image: 'assets/images/canada.jpg', title: 'Canada'),
+                    //     ],
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: 20,
+                    // ),
+                    // SizedBox(
+                    //   height: 80,
+                    // ),
                   ],
                 ),
               )
@@ -236,68 +214,152 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget makeItem({
-    required String image,
-    required String title,
-    VoidCallback? onTap,
-    VoidCallback? onLike,
-    bool isLiked = false,
-  }) {
+  Widget makeItem({image, title, VoidCallback? onTap}) {
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: GestureDetector(
         onTap: onTap,
-        child: Stack(
-          children: [
-            Container(
-              margin: EdgeInsets.only(right: 15),
-              decoration: BoxDecoration(
+        child: Container(
+          margin: EdgeInsets.only(right: 15),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              image:
+                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+          child: Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomRight,
-                    colors: [
-                      MainColor.withOpacity(.8),
-                      MainColor.withOpacity(.2),
-                    ],
-                  ),
-                ),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
+                gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
+                  MainColor.withOpacity(.8),
+                  MainColor.withOpacity(.2),
+                ])),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                title,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 40, 40, 40),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
-            Positioned(
-              bottom: 20,
-              right: 25,
-              child: GestureDetector(
-                onTap: onLike,
-                child: Icon(
-                  isLiked ? Icons.favorite : Icons.favorite_border,
-                  color: isLiked ? Colors.red : Colors.white,
-                  size: 30,
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'package:new_app/core/utils/constants.dart';
+// import 'package:new_app/core/utils/suze_config.dart';
+
+// class HomePage extends StatefulWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Container(
+//             child: Padding(
+//               padding: const EdgeInsets.only(left: 20, top: 70),
+//               child: Row(
+//                 children: [
+//                   Icon(
+//                     Icons.menu_rounded,
+//                     size: 30,
+//                     color: IconColor,
+//                   ),
+//                   Expanded(child: Container()),
+//                   Container(
+//                     margin: const EdgeInsets.only(right: 20),
+//                     width: SizeConfig.defaultSize! * 5,
+//                     height: SizeConfig.defaultSize! * 5,
+//                     decoration: BoxDecoration(
+//                         borderRadius: BorderRadius.circular(10),
+//                         color: Colors.grey[400]),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           SizedBox(
+//             height: 40,
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.only(left: 20, bottom: 40),
+//             child: Text(
+//               "Discover",
+//               style: TextStyle(
+//                   fontFamily: 'Poppins',
+//                   fontSize: 35,
+//                   color: Color.fromRGBO(46, 46, 46, 0.882),
+//                   fontWeight: FontWeight.bold),
+//             ),
+//           ),
+//           ListView.builder(
+//            // itemCount: 3,
+//             scrollDirection: Axis.horizontal,
+//             itemBuilder: (BuildContext context, int index) {
+//               return
+//                 Container(
+//                 width: 200,
+//                 height: 300,
+//                 decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(20),
+//                     color: Colors.white,
+//                     image: DecorationImage(
+//                         image: AssetImage("assets/photos/test.png"),
+//                         fit: BoxFit.cover)),
+//               );
+//             },
+//           ),
+
+//           // SizedBox(
+//           //   height: 40,
+//           // ),
+//           //tabbar
+//           // Container(
+//           //   child: Align(
+//           //     alignment: Alignment.centerLeft,
+//           //     child: TabBar(
+//           //       labelPadding: EdgeInsets.only(left: 20,right: 20),
+//           //         labelColor: MainColor,
+//           //         unselectedLabelColor: Colors.black54,
+//           //         controller: tabController,
+//           //        isScrollable: true,
+//           //        indicatorSize: TabBarIndicatorSize.label,
+
+//           //         tabs: [
+//           //           Tab(
+
+//           //           ),
+//           //           Tab(
+//           //             text: "ATAR",
+//           //           ),
+//           //           Tab(
+//           //             text: "wilaya",
+//           //           )
+//           //         ]),
+//           //   ),
+//           // ),
+//           // Container(
+//           //   height: 300,
+//           //   width: double.maxFinite,
+//           //   child: TabBarView(
+//           //       controller: tabController,
+//           //       children: [Text('hi'), Text('hi'), Text('hi')]),
+//           // )
+//         ],
+//       ),
+//     );
+//   }
+// }

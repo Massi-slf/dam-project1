@@ -1,6 +1,7 @@
 import 'package:new_app/features/splash/ui/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_app/login/login.dart';
 
 void main() {
   runApp(const Page_Home());
@@ -14,7 +15,7 @@ class Page_Home extends StatelessWidget {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash_View() ,
+      home: LoginPage() ,
     ) ;
   }
 }
