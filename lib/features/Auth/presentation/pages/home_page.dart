@@ -97,7 +97,11 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
                           makeItem(
-                              image: 'assets/photos_wilaya/alger.jpg', title: 'Alger',),
+                              image: 'assets/photos_wilaya/alger.jpg', title: 'Alger',onTap: () {
+                                Navigator.push(
+                                   context,
+                                  MaterialPageRoute(builder: (context) => DetailPages(),));
+                              },),
                           makeItem(
                               image: 'assets/photos_wilaya/oran.jpg', title: 'Oran'),
                           makeItem(
@@ -186,11 +190,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget makeItem({image, title,OnTap}) {
+  Widget makeItem({image, title,VoidCallback? onTap}) {
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: GestureDetector(
-       
+       onTap: onTap,
         child: Container(
           margin: EdgeInsets.only(right: 15),
           decoration: BoxDecoration(
