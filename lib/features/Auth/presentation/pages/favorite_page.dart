@@ -8,9 +8,9 @@ class FavoritePage extends StatefulWidget {
 
 class _FavoritePageState extends State<FavoritePage> {
   List<Map<String, dynamic>> favoritePlaces = [
-    {"image": 'assets/favorite_places/alger.jpg', "title": 'alger'},
-    {"image": 'assets/favorite_places/constantine.jpg', "title": 'constantine'},
-    {"image": 'assets/favorite_places/setif.jpg', "title": 'setif'},
+    {"image": 'assets/favorite_places/alger.jpg', "title": 'Alger'},
+    {"image": 'assets/favorite_places/constantine.jpg', "title": 'Constantine'},
+    {"image": 'assets/favorite_places/setif.jpg', "title": 'Setif'},
     // Add more favorite places as needed
   ];
 
@@ -24,7 +24,7 @@ class _FavoritePageState extends State<FavoritePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 7),
+                SizedBox(height: 20),
                 Text(
                   "My Favorite Places",
                   style: TextStyle(
@@ -54,53 +54,51 @@ class _FavoritePageState extends State<FavoritePage> {
   }
 
   Widget makeItem({required String image, required String title}) {
-  return Card(
-    margin: EdgeInsets.only(bottom: 16),
-    child: Stack(
-      children: [
-        Container(
-          height: 250,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(image),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Container(
-          height: 250,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              begin: Alignment.bottomRight,
-              colors: [
-                MainColor.withOpacity(.7),
-                MainColor.withOpacity(.1),
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white,
+    return Card(
+      margin: EdgeInsets.only(bottom: 16),
+      child: Stack(
+        children: [
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
               ),
             ),
           ),
-        ),
-      ],
-    ),
-  );
-}
-
-
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                colors: [
+                  MainColor.withOpacity(.7),
+                  MainColor.withOpacity(.1),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
