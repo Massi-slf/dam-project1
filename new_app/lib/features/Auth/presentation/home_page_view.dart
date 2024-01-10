@@ -3,7 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:new_app/core/utils/constants.dart';
 import 'package:new_app/features/Auth/presentation/pages/favorite_page.dart';
 import 'package:new_app/features/Auth/presentation/pages/home_page.dart';
-import 'package:new_app/features/Auth/presentation/pages/search_page.dart';
+
 import 'package:new_app/features/Auth/presentation/pages/user_page.dart';
 
 class HomePageView extends StatefulWidget {
@@ -23,10 +23,9 @@ class _HomePageViewState extends State<HomePageView> {
   }
 
   final List<Widget> pages = [
-     HomePage(),
-     SearchPage(),
-     FavoritePage(),
-     UserPage(),
+    HomePage(),
+    FavoritePage(),
+    UserPage(),
   ];
 
   @override
@@ -48,7 +47,6 @@ class _HomePageViewState extends State<HomePageView> {
               icon: Icons.home_rounded,
               text: "Home",
             ),
-            GButton(icon: Icons.search_rounded, text: "Search"),
             GButton(icon: Icons.favorite, text: "Favorite"),
             GButton(icon: Icons.person_sharp, text: "Profile"),
           ],

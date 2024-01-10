@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_app/login/login.dart';
+import 'package:new_app/features/splash/ui/splash_view.dart';
 
 void main() {
   runApp(const Page_Home());
@@ -12,10 +11,9 @@ class Page_Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage() ,
-    ) ;
+      home: Splash_View(),
+    );
   }
 }
