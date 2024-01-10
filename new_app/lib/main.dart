@@ -11,10 +11,9 @@ class Page_Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash_View() ,
-    ) ;
+      home: Splash_View(),
+    );
   }
 }

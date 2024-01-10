@@ -1,5 +1,3 @@
-# serializers.py in your app directory
-
 from rest_framework import serializers
 from .models import City,CityImage
 

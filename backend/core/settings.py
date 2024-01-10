@@ -44,10 +44,11 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
 
     'django_filters',
+
     "authentication",
     "accounts",
     "cities",
-    "hotels"
+    "hotels",
 ]
 
 MIDDLEWARE = [
